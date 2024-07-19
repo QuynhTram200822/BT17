@@ -243,12 +243,15 @@ function filterStudents() {
     if (filterName && !studentName.includes(filterName)) {
       return false;
     }
-    if (filterStudentCode && student.studentCode !== filterStudentCode) {
+    let studentCode = normalizeString(student.studentCode);
+    if (filterStudentCode && !studentCode.includes(filterStudentCode)) {
       return false;
     }
-    if (filterEmail && student.email !== filterEmail) {
+    let studentEmail = normalizeString(student.email);
+    if (filterEmail && !studentEmail.includes(filterEmail)) {
       return false;
     }
+
     if (filterDepartment !== 'All' && student.department !== filterDepartment) {
       return false;
     }
